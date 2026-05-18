@@ -34,7 +34,11 @@ export function Hero() {
             target="_blank"
             onClick={() => {
               if (window.fbq) {
-                window.fbq("track", "Lead", { value: 10, currency: "BRL" });
+                const whatsappEventId = `lead_wa_${crypto.randomUUID()}`;
+                window.fbq("track", "Lead", 
+                  { value: 10, currency: "BRL" },
+                  { eventID: whatsappEventId }
+                );
               }
             }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-green-500 hover:bg-green-400 text-zinc-950 font-bold px-8 py-4 rounded-2xl text-lg transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-green-500/20 animate-pulse-subtle"
@@ -50,7 +54,11 @@ export function Hero() {
             target="_blank"
             onClick={() => {
               if (window.fbq) {
-                window.fbq("track", "Lead", { value: 5, currency: "BRL" });
+                const telegramEventId = `lead_tg_${crypto.randomUUID()}`;
+                window.fbq("track", "Lead", 
+                  { value: 5, currency: "BRL" }, 
+                  { eventID: telegramEventId }
+                );
               }
             }}
             className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 hover:border-zinc-700 font-semibold px-8 py-4 rounded-2xl text-lg transition-all"

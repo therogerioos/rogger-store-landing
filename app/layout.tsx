@@ -51,7 +51,8 @@ export default function RootLayout({
             'https://connect.facebook.net/en_US/fbevents.js');
 
             fbq('init', '${process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_ID}');
-            fbq('track', 'PageView');
+            const pageViewId = 'pageview_' + Math.random().toString(36).substring(2, 15);
+            fbq('track', 'PageView', {}, { eventID: pageViewId });
           `}
         </Script>
       </head>
